@@ -1,22 +1,10 @@
-<p align="center">
-  <img width=100% src="https://github.com/digitsensitive/phaser3-typescript/blob/master/assets/github/phaser3-typescript.png">
-  Phaser 3 Game Examples written in TypeScript.
-</div>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![Dependencies](https://img.shields.io/david/digitsensitive/phaser3-typescript.svg)
-![GitHub issues](https://img.shields.io/github/issues/digitsensitive/phaser3-typescript.svg)
-![GitHub stars](https://img.shields.io/github/stars/digitsensitive/phaser3-typescript.svg)
-![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
-![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-![GitHub licence](https://img.shields.io/github/license/digitsensitive/phaser3-typescript.svg)
-
-<p align="center">
-  <sub>Examples made with ❤︎ by <a href="https://github.com/digitsensitive">digitsensitive</a></br>
-  Framework created by <a href="https://github.com/photonstorm">Photonstorm</a></sub>
-</div>
-
 # Phaser 3 and TypeScript
+
+##
+ ### @author       JGGames
+ ### @description  Game: Flappy Bird Clone 
+ ####  -- based on version by Digitsensitive 2019
+
 
 [Phaser](https://github.com/photonstorm/phaser) is a wonderful, fast and
 free open source HTML5 game framework.
@@ -25,7 +13,7 @@ in TypeScript. Have fun discovering, developing and playing!
 Ideas and corrections are highly desirable to constantly
 improve this repository!
 
-<div align="center">
+<!-- <div align="center"> -->
 <a href="https://www.buymeacoffee.com/JZDVjsT26" target="blank">
 <img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: auto !important; width: auto !important;"></a>
 </div>
