@@ -1,10 +1,9 @@
 import Phaser, {Types} from 'phaser';
 import {
-  BootScene,
   PlayScene,
 } from './scenes';
 
-class GameFlappy extends Phaser.Game {
+class MonsterTap extends Phaser.Game {
   constructor(gameConfig: Types.Core.GameConfig) {
     super(gameConfig);
   }
@@ -14,7 +13,7 @@ const GameConfig: Types.Core.GameConfig = {
   width: 390,
   height: 600,
   parent: "game",
-  scene: [BootScene, PlayScene],
+  scene: [PlayScene],
   input: {
     keyboard: true
   },
@@ -32,5 +31,5 @@ const GameConfig: Types.Core.GameConfig = {
 };
 
 window.addEventListener("load", 
-  () => new GameFlappy(GameConfig)
+  () => new MonsterTap(GameConfig)
 );
