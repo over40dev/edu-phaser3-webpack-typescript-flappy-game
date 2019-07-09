@@ -3,7 +3,7 @@ import { Player, Pipe } from "../objects";
 
 export default class PlayScene extends Phaser.Scene {
   private player: Player;
-  private pipe: Pipe;
+  // private pipe: Pipe;
   private pipes: Phaser.GameObjects.Group;
   private background: Phaser.GameObjects.TileSprite;
   private scoreText: Phaser.GameObjects.BitmapText;
@@ -56,7 +56,34 @@ export default class PlayScene extends Phaser.Scene {
     });
   }
 
-  update() {}
+  update():void {
+    if (this.player.isStillAlive()) {
+      this.background.tilePositionX += 4;
+      this.player.update();
+      this.physics.overlap(
+        this.player,
+        this.pipes,
+        function() {
+          this.player.setIsAlive(false);
+        },
+        null,
+        this,
+      )
+    }
+    else {
+      Phaser.Actions.Call(
+        this.pipes.getChildren(),
+        function(pipe) {
+          pipe.body.setVelocityX(0);
+        },
+        this
+      );
+
+      if (this.player.y > this.sys.canvas.height) {
+        this.scene.restart();
+      }
+    }
+  }
 
   private addNewRowOfPipes(): void {
     // update the score
@@ -85,7 +112,12 @@ export default class PlayScene extends Phaser.Scene {
   private addPipe(x:number, y:number, key:string, frame?:number): void {
     //create a new pipe at the position x and y and add it to the group
     this.pipes.add(
-      new Pipe(this, x, y, "pipe", frame)
+      new Pipe(this, 
+        x,
+        y,
+        "pipe",
+        frame,
+      )
     );
   }
 }
