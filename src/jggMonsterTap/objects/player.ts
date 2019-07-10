@@ -1,24 +1,25 @@
 import Phaser from 'phaser';
+import { IPlayer } from '../interfaces';
 
 export default class Player extends Phaser.GameObjects.Sprite {
-
   private jumpKey: Phaser.Input.Keyboard.Key;
   private isAlive: boolean;
   private isFlapping: boolean;
-  
+
   public isStillAlive() {
     return this.isAlive;
   }
 
-  public setIsAlive(alive:boolean):void {
-    this.isAlive = alive;  // using this public property setter avoids the situation where state is updated in multiple locations.
+  public setIsAlive(alive: boolean): void {
+    this.isAlive = alive; // using this public property setter avoids the situation where state is updated in multiple locations.
   }
 
-  constructor(scene:Phaser.Scene, x:number, y:number, key:string, frame?:string|number) {
+  constructor(config: IPlayer) {
+    const { scene, x, y, key, frame } = config;
     super(scene, x, y, key, frame);
 
     // sprite
-    this.setScale(3);
+    // this.setScale(3);
     this.setOrigin(0, 0);
 
     // variables
@@ -28,7 +29,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     // physics
     this.scene.physics.world.enable(this);
     this.body.setGravityY(1000);
-    this.body.setSize(17,12);
+    this.body.setSize(80, 60);
+    // this.body.setSize(17, 12);
 
     // input
     this.jumpKey = this.scene.input.keyboard.addKey(
@@ -38,7 +40,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
   }
 
-  update():void {
+  update(): void {
     // handle angle change
     if (this.angle < 30) {
       this.angle += 2;
@@ -49,15 +51,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
       // flap
       this.isFlapping = true;
       this.body.setVelocityY(-350);
-      this.scene
-      .tweens.add({
+      this.scene.tweens.add({
         targets: this,
         props: { angle: -20 },
         duration: 150,
         ease: "Power0"
       });
-    }
-    else if (this.jumpKey.isUp && this.isFlapping) {
+    } else if (this.jumpKey.isUp && this.isFlapping) {
       this.isFlapping = false;
     }
 

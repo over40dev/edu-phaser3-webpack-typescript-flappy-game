@@ -15,7 +15,7 @@
       {
         "type": "image",
         "key": "player",
-        "url": "./src/jggMonsterTap/assets/images/player08.png"
+        "url": "./src/jggMonsterTap/assets/images/player.png"
       },
       {
         "type": "spritesheet",

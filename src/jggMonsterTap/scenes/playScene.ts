@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import { Player, Pipe } from "../objects";
+import { IPipe } from '../interfaces';
 
 export default class PlayScene extends Phaser.Scene {
   private player: Player;
@@ -9,7 +10,7 @@ export default class PlayScene extends Phaser.Scene {
   private scoreText: Phaser.GameObjects.BitmapText;
 
   constructor() {
-    super("PlayScene");
+    super({key:"PlayScene"});
   }
 
   init(): void {
@@ -43,7 +44,9 @@ export default class PlayScene extends Phaser.Scene {
     });
 
     this.player = 
-      new Player(this, 50, 100, "player", 0);
+      new Player({
+        scene:this, x:50, y:100, key:"player"
+      });
 
     // setup game timer
     this.addNewRowOfPipes();
@@ -95,7 +98,7 @@ export default class PlayScene extends Phaser.Scene {
 
     // add 6 pipes with one big hole at position 'hole' and 'hole+1'
     for (let i = 0; i < 10; i++) {
-      const isHole: boolean = i !== hole && i !== hole + 1 && i !== hole + 2;
+      const isHole: boolean = ((i !== hole) && (i !== hole + 1) && (i !== hole + 2));
 
       if (!isHole) return;
 
@@ -111,13 +114,13 @@ export default class PlayScene extends Phaser.Scene {
 
   private addPipe(x:number, y:number, key:string, frame?:number): void {
     //create a new pipe at the position x and y and add it to the group
-    this.pipes.add(
-      new Pipe(this, 
-        x,
-        y,
-        "pipe",
-        frame,
-      )
-    );
+    const config:IPipe = {
+      scene: this,
+      key: "pipe",
+      x,
+      y,
+      frame,
+    }
+    this.pipes.add(new Pipe(config)); 
   }
 }

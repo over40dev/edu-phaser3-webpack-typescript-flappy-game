@@ -1,7 +1,10 @@
+import Phaser from 'phaser';
+import { IPipe } from '../interfaces';
 
 export default class Pipe extends Phaser.GameObjects.Image {
 
-  constructor(scene:Phaser.Scene, x:number, y:number, key:string, frame?:string|number) {
+  constructor(params:IPipe) {
+    const {scene, x, y, key, frame} = params;
     super(scene, x, y, key, frame);
     
     // image
