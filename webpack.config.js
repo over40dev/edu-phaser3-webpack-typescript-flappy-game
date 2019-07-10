@@ -3,7 +3,7 @@ var pathToPhaser = path.join(__dirname, '/node_modules/phaser/');
 var phaser = path.join(pathToPhaser, 'dist/phaser.js');
 
 module.exports = {
-  entry: './src/app/game.ts', // the first file you want to open to start your app code.
+  entry: './src/jggMonsterTap/MonsterTap.ts', // the first file you want to open to start your app code.
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',

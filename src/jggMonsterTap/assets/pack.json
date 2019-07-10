@@ -1,0 +1,31 @@
+{
+  "MonsterTapPack": {
+    "files": [
+      {
+        "type": "bitmapFont",
+        "key": "font",
+        "textureURL": "./src/jggMonsterTap/assets/font/font.png",
+        "fontDataURL": "./src/jggMonsterTap/assets/font/font.fnt"
+      },
+      {
+        "type": "image",
+        "key": "background",
+        "url": "./src/jggMonsterTap/assets/images/bg.png"
+      },
+      {
+        "type": "image",
+        "key": "player",
+        "url": "./src/jggMonsterTap/assets/images/player.png"
+      },
+      {
+        "type": "spritesheet",
+        "key": "pipe",
+        "url": "./src/jggMonsterTap/assets/images/pipe.png",
+        "frameConfig": {
+          "frameWidth": 20,
+          "frameHeight": 20
+        }
+      }
+    ]
+  }
+}
